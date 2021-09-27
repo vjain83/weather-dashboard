@@ -27,23 +27,24 @@
 
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-4">
-          <form>
-            <div class="form-group">
-              <label for="city-name">Search for the City:</label>
-              <input type="text" class="form-control" id="city-name" />
-              <button type="button" class="btn btn-primary btn-block mt-2">Search</button>
-            </div>
-          </form>
+        <div class="col-sm-12 col-lg-4">
+          <div class="card">
+            <h3 class="card-header text-uppercase ">Search For a City:</h3>
+            <form id="user-form" class="card-body ">
+              <label class="form-label " for="cityname"></label>
+              <input name="cityname" id="cityname"type="text"autofocus="true"class="form-input"/>
+              <button type="submit" class="btn btn-block bg-primary mt-2 text-white">Search</button>
+            </form>
+          </div>
         </div>
 
-        <div class="col-sm-8">
+        <div class="col-sm-12 col-lg-8">
           <div class="row ml-2 mr-2 border border-dark rounded ">
             <div class="col-sm-12" id="current-weather">
-              <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
-              <p>Temperature:<span class="current" id="temperature"></span></p>
-              <p>Humidity:<span class="current" id="humidity"></span></p> 
-              <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
+              <h3 class="city-name mb-1 mt-2 bolder icon" id="current-city"></h3>
+              <p>Temp:<span class="temp" id="temperature"></span></p>
+              <p>Humidity:<span class="humidity" id="humidity"></span></p> 
+              <p>Wind:<span class="wind" id="wind-speed"></span></p>
               <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
           </div>
           
@@ -51,34 +52,34 @@
           <h3 class="bolder mt-2">5-Days Forecast:</h3>
           <div class="row ml-2 mr-2 ">
            
-            <div class="col-sm-2 mt-2">
+            <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white ">
                 <div class="card-header">Header</div>
                 <div class="card-body">Content</div>
                 <div class="card-footer">Footer</div>
               </div>
             </div>
-            <div class="col-sm-2 mt-2">
+            <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white">
               <div class="card-header">Header</div>
               <div class="card-body">Content</div>
               <div class="card-footer">Footer</div>
             </div></div>
-            <div class="col-sm-2 mt-2">
+            <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white ">
               <div class="card-header">Header</div>
               <div class="card-body">Content</div>
               <div class="card-footer">Footer</div>
             </div>
           </div>
-            <div class="col-sm-2 mt-2">
+            <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white ">
               <div class="card-header text-white">Header</div>
               <div class="card-body">Content</div>
               <div class="card-footer">Footer</div>
             </div>
           </div>
-            <div class="col-sm-2 mt-2">
+            <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white ">
               <div class="card-header">Header</div>
               <div class="card-body">Content</div>
