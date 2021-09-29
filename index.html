@@ -18,7 +18,7 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link href="./assets/CSS/style.css" rel="stalesheet" />
+    <link href="./assets/css/style.css" rel="stalesheet" />
   </head>
   <body>
     <div class="jumbotron text-center bg-primary text-white p-3">
@@ -29,61 +29,110 @@
       <div class="row">
         <div class="col-sm-12 col-lg-4">
           <div class="card">
-            <h3 class="card-header text-uppercase ">Search For a City:</h3>
-            <form id="user-form" class="card-body ">
-              <label class="form-label " for="cityname"></label>
-              <input name="cityname" id="cityname"type="text"autofocus="true"class="form-input"/>
-              <button type="submit" class="btn btn-block bg-primary mt-2 text-white">Search</button>
+            <h3 class="card-header text-uppercase">Search For a City:</h3>
+            <form id="user-form" class="card-body">
+              <label class="form-label" for="cityname"></label>
+              <input
+                name="cityname"
+                id="cityname"
+                type="text"
+                autofocus="true"
+                class="form-input"
+              />
+              <button
+                type="submit"
+                class="btn btn-block bg-primary mt-2 text-white"
+              >
+                Search
+              </button>
             </form>
           </div>
         </div>
 
         <div class="col-sm-12 col-lg-8">
-          <div class="row ml-2 mr-2 border border-dark rounded ">
+          <div class="row ml-2 mr-2 border border-dark rounded">
             <div class="col-sm-12" id="current-weather">
-              <h3 class="city-name mb-1 mt-2 bolder icon" id="current-city"></h3>
-              <p>Temp:<span class="temp" id="temperature"></span></p>
-              <p>Humidity:<span class="humidity" id="humidity"></span></p> 
-              <p>Wind:<span class="wind" id="wind-speed"></span></p>
-              <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
+              <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
+              <div class="img">
+                <img class="currentIcon" id="icon" alt="" />
+              </div>
+              <p>Temp : <span class="temp" id="temperature"></span></p>
+              <p>Humidity : <span class="humidity" id="humidity"></span></p>
+              <p>Wind : <span class="wind" id="wind-speed"></span></p>
+              <p>
+                UV index :
+                <span id="index" class="uv-index"></span>
+              </p>
+            </div>
           </div>
-          
-          </div>
+
           <h3 class="bolder mt-2">5-Days Forecast:</h3>
-          <div class="row ml-2 mr-2 ">
-           
+
+          <div class="row ml-2 mr-2 justify-content-md-between">
             <div class="col-sm-12 col-lg-2 mt-2">
-              <div class="card bg-dark text-white ">
-                <div class="card-header">Header</div>
-                <div class="card-body">Content</div>
-                <div class="card-footer">Footer</div>
+              <div class="card bg-dark text-white">
+                <div class="card-header" id="date1"></div>
+                <div class="card-body">
+                  <div class="img">
+                    <img class="imageClass" id="img1" alt="" />
+                  </div>
+                  <p class="temp1"></p>
+                  <p class="humidity1"></p>
+                  <p class="wind1"></p>
+                </div>
               </div>
             </div>
             <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white">
-              <div class="card-header">Header</div>
-              <div class="card-body">Content</div>
-              <div class="card-footer">Footer</div>
-            </div></div>
-            <div class="col-sm-12 col-lg-2 mt-2">
-              <div class="card bg-dark text-white ">
-              <div class="card-header">Header</div>
-              <div class="card-body">Content</div>
-              <div class="card-footer">Footer</div>
+                <div class="card-header" id="date2"></div>
+                <div class="card-body">
+                  <div class="img">
+                    <img class="imageClass" id="img2" alt="" />
+                  </div>
+                  <p class="temp2"></p>
+                  <p class="humidity2"></p>
+                  <p class="wind2"></p>
+                </div>
+              </div>
             </div>
-          </div>
             <div class="col-sm-12 col-lg-2 mt-2">
-              <div class="card bg-dark text-white ">
-              <div class="card-header text-white">Header</div>
-              <div class="card-body">Content</div>
-              <div class="card-footer">Footer</div>
+              <div class="card bg-dark text-white">
+                <div class="card-header" id="date3"></div>
+                <div class="card-body">
+                  <div class="img">
+                    <img class="imageClass" id="img3" alt="" />
+                  </div>
+                  <p class="temp3"></p>
+                  <p class="humidity3"></p>
+                  <p class="wind3"></p>
+                </div>
+              </div>
             </div>
-          </div>
             <div class="col-sm-12 col-lg-2 mt-2">
-              <div class="card bg-dark text-white ">
-              <div class="card-header">Header</div>
-              <div class="card-body">Content</div>
-              <div class="card-footer">Footer</div>
+              <div class="card bg-dark text-white">
+                <div class="card-header" id="date4"></div>
+                <div class="card-body">
+                  <div class="img">
+                    <img class="imageClass" id="img4" alt="" />
+                  </div>
+                  <p class="temp4"></p>
+                  <p class="humidity4"></p>
+                  <p class="wind4"></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-lg-2 mt-2">
+              <div class="card bg-dark text-white">
+                <div class="card-header" id="date5"></div>
+                <div class="card-body">
+                  <div class="img">
+                    <img class="imageClass" id="img5" alt="" />
+                  </div>
+                  <p class="temp5"></p>
+                  <p class="humidity5"></p>
+                  <p class="wind5"></p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -92,6 +141,6 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="./assets/JS/script.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
