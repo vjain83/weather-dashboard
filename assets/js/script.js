@@ -25,7 +25,7 @@ var getWeatherReport = function (city) {
 
 // function to fetch five day forecast and UV index data 
 var getForecast = function (lat, lon) {
-    fetch("http://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat="
+    fetch("https://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat="
         + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial")
         .then(function (response) {
             if (response.ok) {
