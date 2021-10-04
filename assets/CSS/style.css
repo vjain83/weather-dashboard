@@ -7,12 +7,30 @@
 
 .card-header {
   font-weight: bolder;
-  font-size: 30px;
+  font-size: 25px;
   font-family: "Courier New", Courier, monospace;
 }
 
-#date1 {
-  font-weight: bolder;
-  font-size: 30px;
-  font-family: "Courier New", Courier, monospace;
+.red {
+  background-color: brown;
+  color: white;
+}
+
+#city-searched {
+  list-style: none;
+}
+.uv-favourable {
+  background-color: green;
+  color: white;
+  border-radius: 5px;
+}
+.uv-moderate {
+  background-color: orange;
+  color: white;
+  border-radius: 5px;
+}
+.uv-severe {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
 }

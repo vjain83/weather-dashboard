@@ -1,19 +1,19 @@
-var city = "";
+var cityList = [];
 var APIKey = "56f40ee173de6ace1c476154245cb044"
 
 // function to fetch current weather 
 var getWeatherReport = function (city) {
-
     fetch("https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIKey)
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
                     displayTodayData(data);
                     console.log(data);
-
+                    //create variables for lat and lon to to fetch UV index data
                     var lat = data.coord.lat
                     var lon = data.coord.lon
                     getForecast(lat, lon)
+
                 })
             }
             else {
@@ -23,7 +23,7 @@ var getWeatherReport = function (city) {
 
 }
 
-// function for five day forecast
+// function to fetch five day forecast and UV index data 
 var getForecast = function (lat, lon) {
     fetch("http://api.openweathermap.org/data/2.5/onecall?exclude=hourly,alerts,minutely&lat="
         + lat + "&lon=" + lon + "&appid=" + APIKey + "&units=imperial")
@@ -56,6 +56,7 @@ var displayTodayData = function (data) {
 
 }
 
+// function to display five day forecast
 var displayForecastData = function (data) {
 
     for (var i = 1; i <= 5; i++) {
@@ -70,39 +71,82 @@ var displayForecastData = function (data) {
     }
 }
 
+// Change UV index background
 var dispalyUvIndex = function (jsonData) {
     var currentUVI = jsonData.current.uvi;
-    var element = document.querySelector("#index");
     document.querySelector(".uv-index").innerHTML = currentUVI;
+    var indexEl = document.getElementById("index");
 
+    if (currentUVI >= 0 && currentUVI < 3) {
+        indexEl.classList.add("uv-favourable");
+    } else if (currentUVI >= 3 && currentUVI < 7) {
+        indexEl.classList.add("uv-moderate");
+    } else if (currentUVI >= 7) {
+        indexEl.classList.add("uv-severe");
+    }
 }
 
-// variable for user input
-var nameInputEl = document.querySelector("#cityname");
+// Variable for user input
 var userFormEl = document.querySelector("#user-form");
 
-
 var formSubmitHandler = function (event) {
+    var nameInputEl = document.querySelector("#cityname");
     event.preventDefault();
 
-    // get value from input element
+    // Get value from input element
     var cityname = nameInputEl.value.trim();
 
     if (cityname) {
+        saveCity(cityname);
         getWeatherReport(cityname);
         nameInputEl.value = "";
+        displaySavedCities();
+
     } else {
         alert("Please enter correct city Name");
     }
     console.log(event);
 };
 
+// Save unique city name
+var saveCity = function (city) {
+    cityList.push(city.toLowerCase())
+    var uniqueSet = new Set(cityList)
+    cityList = Array.from(uniqueSet)
+    localStorage.setItem("cities", JSON.stringify(cityList));
+}
+
+var loadCities = function () {
+    cityList = JSON.parse(localStorage.getItem("cities"))
+    if (cityList == null) {
+        cityList = [];
+    }
+    displaySavedCities()
+}
+
+// Display all saved cities for easy navigation
+var displaySavedCities = function () {
+    var citySearchedEl = document.getElementById("city-searched")
+    citySearchedEl.innerHTML = null
+
+    for (i = 0; i < cityList.length; i++) {
+        const city = cityList[i];
+        var listItem = document.createElement("li");
+
+        var button = document.createElement("button")
+        button.innerHTML = city
+        button.addEventListener("click", function () {
+            getWeatherReport(city)
+        })
+        button.style.width = "90%"
+        button.style.padding = "10px"
+        listItem.appendChild(button);
+        listItem.style.margin = "10px"
+
+        citySearchedEl.appendChild(listItem)
+    }
+}
+
 userFormEl.addEventListener("submit", formSubmitHandler);
 
-
-
-
-
-
-
-
+loadCities()

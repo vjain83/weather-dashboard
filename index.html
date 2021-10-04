@@ -18,16 +18,18 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link href="./assets/css/style.css" rel="stalesheet" />
+    <link href="./assets/css/style.css" rel="stylesheet" />
   </head>
+  
   <body>
     <div class="jumbotron text-center bg-primary text-white p-3">
       <h1>Weather Dashboard</h1>
     </div>
 
+    <!-- Form input for city name-->
     <div class="container-fluid">
       <div class="row">
-        <div class="col-sm-12 col-lg-4">
+        <div class="col-sm-12 col-lg-3">
           <div class="card">
             <h3 class="card-header text-uppercase">Search For a City:</h3>
             <form id="user-form" class="card-body">
@@ -47,13 +49,17 @@
               </button>
             </form>
           </div>
+
+          <!--Searched City list-->
+          <ul id="city-searched" class="list text-center"></ul>
         </div>
 
-        <div class="col-sm-12 col-lg-8">
-          <div class="row ml-2 mr-2 border border-dark rounded">
+        <div class="col-sm-12 col-lg-9">
+          <!-- Current Weather -->
+          <div class="row m-2 border border-dark rounded">
             <div class="col-sm-12" id="current-weather">
-              <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
-              <div class="img">
+              <div style="display: flex">
+                <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
                 <img class="currentIcon" id="icon" alt="" />
               </div>
               <p>Temp : <span class="temp" id="temperature"></span></p>
@@ -61,13 +67,13 @@
               <p>Wind : <span class="wind" id="wind-speed"></span></p>
               <p>
                 UV index :
-                <span id="index" class="uv-index"></span>
+                <span class="uv-index" id="index"></span>
               </p>
             </div>
           </div>
 
-          <h3 class="bolder mt-2">5-Days Forecast:</h3>
-
+          <!--Five day forecast-->
+          <h3 class="bolder m-2">5-Days Forecast:</h3>
           <div class="row ml-2 mr-2 justify-content-md-between">
             <div class="col-sm-12 col-lg-2 mt-2">
               <div class="card bg-dark text-white">
